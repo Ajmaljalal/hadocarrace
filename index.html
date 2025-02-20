@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hado's Car Adventure</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="description" content="A fun racing game where you dodge obstacles and try to achieve high speeds">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Car Race">
+  </head>
+
+  <body>
+    <div class="game-container">
+      <h1>Hado's Car Adventure 🚗</h1>
+      <canvas id="gameCanvas"></canvas>
+
+      <div class="mobile-controls">
+        <button id="leftBtn">←</button>
+        <button id="upBtn">↑</button>
+        <button id="rightBtn">→</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  </body>
+
+</html>
